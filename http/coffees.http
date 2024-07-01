@@ -1,3 +1,13 @@
 @host = http://localhost:3000
 
 GET {{host}}/coffees
+
+###
+
+POST {{host}}/coffees
+Content-Type: application/json
+
+{
+    "name": "Old Florida Roast",
+    "brand": "Buddy Brew"
+}
