@@ -3,6 +3,10 @@
 GET {{host}}/coffees
 
 ###
+@id = 2
+GET {{host}}/coffees?{{id}}
+
+###
 
 POST {{host}}/coffees
 Content-Type: application/json
@@ -11,3 +15,15 @@ Content-Type: application/json
     "name": "Old Florida Roast",
     "brand": "Buddy Brew"
 }
+###
+
+PATCH {{host}}/coffees?{{id}}
+Content-Type: application/json
+
+{
+    "name": "Old Florida Roast",
+    "brand": "Buddy Brew"
+}
+###
+
+DELETE {{host}}/coffees?{{id}}
