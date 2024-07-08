@@ -1,6 +1,8 @@
 @host = http://localhost:3000
+@limit = 1
+@offset = 3
 
-GET {{host}}/coffees
+GET {{host}}/coffees?limit={{limit}}&offset={{offset}}
 
 ###
 @id = 2
