@@ -5,7 +5,7 @@
 GET {{host}}/coffees?limit={{limit}}&offset={{offset}}
 
 ###
-@id = 1
+@id = 2
 GET {{host}}/coffees/{{id}}
 
 ###
