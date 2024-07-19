@@ -5,7 +5,7 @@
 GET {{host}}/coffees?limit={{limit}}&offset={{offset}}
 
 ###
-@id = 2
+@id = 1
 GET {{host}}/coffees/{{id}}
 
 ###
@@ -15,7 +15,9 @@ Content-Type: application/json
 
 {
     "name": "Old Florida Roast",
-    "brand": "Buddy Brew"
+    "brand": "Buddy Brew",
+    "flavors": ["one"],
+    "test": 3
 }
 ###
 

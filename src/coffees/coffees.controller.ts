@@ -10,8 +10,8 @@ import {
 } from '@nestjs/common';
 
 import { CoffeesService } from './coffees.service';
-import { CreateCoffeeDto } from './dto/create-coffee.dto/create-coffee.dto';
-import { UpdateCoffeeDto } from './dto/update-coffee.dto/update-coffee.dto';
+import { CreateCoffeeDto } from './dto/create-coffee.dto';
+import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 
 @Controller('coffees')
 export class CoffeesController {
@@ -29,6 +29,7 @@ export class CoffeesController {
 
   @Post()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
+    console.log(createCoffeeDto);
     return this.coffeeService.create(createCoffeeDto);
   }
 
