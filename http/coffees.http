@@ -17,7 +17,7 @@ Content-Type: application/json
     "name": "Old Florida Roast",
     "brand": "Buddy Brew",
     "flavors": ["one"],
-    "test": 3
+    "test": true
 }
 ###
 
