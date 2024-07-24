@@ -2,32 +2,39 @@
 @limit = 1
 @offset = 3
 
+###
+#Get All
+###
 GET {{host}}/coffees?limit={{limit}}&offset={{offset}}
 
 ###
-@id = 1
+#Get One
+###
+@id = 2
 GET {{host}}/coffees/{{id}}
 
 ###
-
+#Create
+###
 POST {{host}}/coffees
 Content-Type: application/json
 
 {
-    "name": "Old Florida Roast",
+    "name": "Old Florida Roast3",
     "brand": "Buddy Brew",
-    "flavors": ["one"],
-    "test": true
+    "flavors": ["one"]
 }
 ###
-
+#Uptate
+###
 PATCH {{host}}/coffees/{{id}}
 Content-Type: application/json
 
 {
-    "name": "Old Florida Roast",
+    "name": "Old Florida Roast2",
     "brand": "Buddy Brew"
 }
 ###
-
+#delete
+###
 DELETE {{host}}/coffees/{{id}}
