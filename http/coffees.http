@@ -20,9 +20,9 @@ POST {{host}}/coffees
 Content-Type: application/json
 
 {
-    "name": "Old Florida Roast3",
+    "name": "Old Florida Roast4",
     "brand": "Buddy Brew",
-    "flavors": ["one"]
+    "flavors": ["ones", "twos", "threes"]
 }
 ###
 #Uptate
