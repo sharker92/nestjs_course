@@ -18,8 +18,7 @@ export class CoffeesController {
   constructor(private readonly coffeeService: CoffeesService) {}
   @Get()
   findAll(@Query() paginationQuery) {
-    // const { limit, offset } = paginationQuery;
-    return this.coffeeService.findAll();
+    return this.coffeeService.findAll(paginationQuery);
   }
 
   @Get(':id')
