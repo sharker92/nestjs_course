@@ -1,6 +1,6 @@
 @host = http://localhost:3000
-@limit = 1
-@offset = 3
+@limit = 3
+@offset = 0
 
 ###
 #Get All
