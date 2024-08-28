@@ -24,11 +24,11 @@ export class CoffeesService {
     private readonly configService: ConfigService,
   ) {
     console.log('CoffeesService instantiated');
-    const databaseHost = this.configService.get(
-      'database.host',
-      'default_value',
+    const coffeesConfig = this.configService.get(
+      'coffees.foo',
+      'There is no coffees config',
     );
-    console.log(databaseHost);
+    console.log(coffeesConfig);
   }
 
   findAll(paginationQuery: PaginationQueryDto) {
