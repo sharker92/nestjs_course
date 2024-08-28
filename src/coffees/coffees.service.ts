@@ -23,9 +23,12 @@ export class CoffeesService {
     // @Inject(REQUEST) private readonly request: Request,
     private readonly configService: ConfigService,
   ) {
-      console.log('CoffeesService instantiated');
-      const databaseHost = this.configService.get<string>('DATABASE_HOST', 'default_value');
-      console.log(databaseHost);
+    console.log('CoffeesService instantiated');
+    const databaseHost = this.configService.get(
+      'database.host',
+      'default_value',
+    );
+    console.log(databaseHost);
   }
 
   findAll(paginationQuery: PaginationQueryDto) {
