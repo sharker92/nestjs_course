@@ -2,16 +2,22 @@
 @limit = 3
 @offset = 1
 
+@token = 123456O
+
 ###
 #Get All
 ###
 GET {{host}}/coffees?limit={{limit}}&offset={{offset}}
+Content-Type: application/json
+Authorization: {{token}}
 
 ###
 #Get One
 ###
-@id = -3
+@id = 1
 GET {{host}}/coffees/{{id}}
+Content-Type: application/json
+Authorization: {{token}}
 
 ###
 #Create
