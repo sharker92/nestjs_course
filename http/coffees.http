@@ -22,6 +22,8 @@ Authorization: {{token}}
 ###
 POST {{host}}/coffees
 Content-Type: application/json
+Authorization: {{token}}
+
 
 {
     "name": "Old Florida Roast4",
