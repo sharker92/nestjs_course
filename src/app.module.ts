@@ -12,6 +12,12 @@ import appConfig from './config/app.config';
 
 @Module({
   imports: [
+    TypeOrmModule.forRootAsync({
+      useFactory: () => ({
+        ...dataSourceOptions,
+        autoLoadEntities: true,
+      }),
+    }),
     ConfigModule.forRoot({
       validationSchema: Joi.object({
         DATABASE_HOST: Joi.required(),
@@ -20,10 +26,6 @@ import appConfig from './config/app.config';
       load: [appConfig],
     }),
     CoffeesModule,
-    TypeOrmModule.forRoot({
-      ...dataSourceOptions,
-      autoLoadEntities: true,
-    }),
     CoffeeRatingModule,
     DatabaseModule,
   ],
