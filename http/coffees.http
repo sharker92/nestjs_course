@@ -8,8 +8,6 @@
 #Get All
 ###
 GET {{host}}/coffees?limit={{limit}}&offset={{offset}}
-Content-Type: application/json
-Authorization: {{token}}
 
 ###
 #Get One
