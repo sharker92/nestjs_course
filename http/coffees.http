@@ -7,6 +7,13 @@
 ###
 #Get All
 ###
+GET {{host}}/
+Authorization: {{token}}
+
+
+###
+#Get All
+###
 GET {{host}}/coffees?limit={{limit}}&offset={{offset}}
 
 ###
