@@ -6,10 +6,10 @@ import {
 } from '@nestjs/common';
 
 @Injectable()
-export class ParseIntPipe implements PipeTransform {
+export class ParseIntPipe2 implements PipeTransform {
   transform(value: any, metadata: ArgumentMetadata) {
     console.log('value', value);
-    console.log('Uno');
+    console.log('Dos');
     const val = parseInt(value, 10);
     if (isNaN(val)) {
       throw new BadRequestException(
