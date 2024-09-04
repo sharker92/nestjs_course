@@ -19,13 +19,15 @@ import { Public } from 'src/common/decorators/public.decorator';
 import { Protocol } from 'src/common/decorators/protocol.decorator';
 import { ParseIntPipe2 } from 'src/common/pipes/parse-int/parse-int2.pipe';
 import { ParseIntPipe } from 'src/common/pipes/parse-int/parse-int.pipe';
+import { ApiForbiddenResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('coffees')
 @Controller('coffees')
 export class CoffeesController {
   constructor(private readonly coffeeService: CoffeesService) {
     console.log('CoffeesController instantiated');
   }
-
+  @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Public()
   @Get()
   async findAll(
@@ -42,18 +44,20 @@ export class CoffeesController {
     console.log(id);
     return this.coffeeService.findOne(id);
   }
-
+  @ApiForbiddenResponse({ description: 'Forbidden.' })
   @Post()
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
     console.log(createCoffeeDto);
     return this.coffeeService.create(createCoffeeDto);
   }
 
+  @ApiTags('coffees1', 'coffees2')
   @Patch(':id')
   update(@Param('id') id: number, @Body() updateCoffeeDto: UpdateCoffeeDto) {
     return this.coffeeService.update(id, updateCoffeeDto);
   }
 
+  @ApiTags('coffees1')
   @Delete(':id')
   remove(@Param('id') id: number) {
     return this.coffeeService.remove(id);
