@@ -10,6 +10,8 @@ import { ConfigModule } from '@nestjs/config';
 import { CommonModule } from './common/common.module';
 import * as Joi from '@hapi/joi';
 import appConfig from './config/app.config';
+import { MongooseModule } from '@nestjs/mongoose';
+import { CoffeesMongoModule } from './coffeesMongo/coffeesMongo.module';
 
 @Module({
   imports: [
@@ -26,7 +28,9 @@ import appConfig from './config/app.config';
       }),
       load: [appConfig],
     }),
+    MongooseModule.forRoot('mongodb://localhost:27017/nest-course'),
     CoffeesModule,
+    CoffeesMongoModule,
     CoffeeRatingModule,
     DatabaseModule,
     CommonModule,

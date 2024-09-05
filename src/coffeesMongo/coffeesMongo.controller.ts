@@ -7,11 +7,10 @@ import {
   Patch,
   Post,
   Query,
-  SetMetadata,
   UsePipes,
 } from '@nestjs/common';
 
-import { CoffeesService } from './coffees.service';
+import { CoffeesMongoService } from './coffeesMongo.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
@@ -19,17 +18,12 @@ import { Public } from 'src/common/decorators/public.decorator';
 import { Protocol } from 'src/common/decorators/protocol.decorator';
 import { ParseIntPipe2 } from 'src/common/pipes/parse-int/parse-int2.pipe';
 import { ParseIntPipe } from 'src/common/pipes/parse-int/parse-int.pipe';
-import {
-  ApiForbiddenResponse,
-  ApiHideProperty,
-  ApiResponse,
-  ApiTags,
-} from '@nestjs/swagger';
+import { ApiForbiddenResponse, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-@ApiTags('coffees')
+@ApiTags('coffeesMongo')
 @Controller('coffees')
-export class CoffeesController {
-  constructor(private readonly coffeeService: CoffeesService) {
+export class CoffeesMongoController {
+  constructor(private readonly coffeeService: CoffeesMongoService) {
     console.log('CoffeesController instantiated');
   }
   @ApiResponse({ status: 403, description: 'Forbidden.' })
