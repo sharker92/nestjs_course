@@ -1,0 +1,56 @@
+@host = http://localhost:3000
+@limit = 3
+@offset = 1
+
+@token = 123456O
+
+###
+#Get All
+###
+GET {{host}}/
+Authorization: {{token}}
+
+
+###
+#Get All
+###
+GET {{host}}/coffeesMongo?limit={{limit}}&offset={{offset}}
+Authorization: {{token}}
+
+###
+#Get One
+###
+@id = 66df2cdd4085f384a96206e9
+GET {{host}}/coffeesMongo/{{id}}
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+#Create
+###
+POST {{host}}/coffeesMongo
+Content-Type: application/json
+Authorization: {{token}}
+
+
+{
+    "name": "Old Florida Roast4",
+    "brand": "Buddy Brew",
+    "flavors": ["ones", "twos", "threes"]
+}
+###
+#Uptate
+###
+PATCH {{host}}/coffeesMongo/{{id}}
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+    "name": "Old Florida Roast2",
+    "brand": "Buddy Brew"
+}
+###
+#delete
+###
+DELETE {{host}}/coffeesMongo/{{id}}
+Authorization: {{token}}
