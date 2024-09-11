@@ -34,7 +34,7 @@ Authorization: {{token}}
 
 
 {
-    "name": "Old Florida Roast4",
+    "name": "Old Florida Roast6",
     "brand": "Buddy Brew",
     "flavors": ["ones", "twos", "threes"]
 }
