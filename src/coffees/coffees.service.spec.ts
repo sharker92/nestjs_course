@@ -38,6 +38,7 @@ describe('CoffeesService', () => {
     });
     describe('otherwise', () => {
       it('should throw the "NotFoundException"', async () => {
+        // hacer la versión con sin el try catch como dice mi curso.
         const coffeeId = 1;
         coffeeRepository.findOne.mockReturnValue(undefined);
         try {
