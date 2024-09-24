@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { CoffeesService } from './coffees.service';
 import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
-
+// unit test should be done in isolation - shouldn't rely on external dependencies
 type MockRepository<T = any> = Partial<Record<keyof Repository<T>, jest.Mock>>;
 const createMockRepository = <T = any>(): MockRepository<T> => ({
   findOne: jest.fn(),
