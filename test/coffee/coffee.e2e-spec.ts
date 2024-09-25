@@ -52,7 +52,7 @@ describe('', async () => {
         const expectedCoffee = jasmine.objectContaining({
           ...coffee,
           flavors: jasmine.arrayContaining(
-            coffee.flavors.map((name) => jasmine.objectContaining({ name })),
+            coffee.flavors.map((name) => jasmine.objectContaining({ name })), // TODO revisar las salida del body para entender esta logica
           ),
         }); // optionally could create files with expected responses and DTO to avoid this repeating logic
         expect(body).toEqual(expectedCoffee);

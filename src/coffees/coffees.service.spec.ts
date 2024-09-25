@@ -1,7 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CoffeesService } from './coffees.service';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
+import { getRepositoryToken } from '@nestjs/typeorm';
+import { Coffee } from './entities/coffee.entity';
+import { Flavor } from './entities/flavor.entity';
+import { COFFEE_BRANDS } from './coffees.constants';
+import coffeesConfig from './config/coffees.config';
 // unit test should be done in isolation - shouldn't rely on external dependencies
 type MockRepository<T = any> = Partial<Record<keyof Repository<T>, jest.Mock>>;
 const createMockRepository = <T = any>(): MockRepository<T> => ({
@@ -15,10 +20,33 @@ describe('CoffeesService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [CoffeesService],
+      providers: [
+        CoffeesService,
+        {
+          provide: getRepositoryToken(Flavor),
+          useValue: createMockRepository(),
+        },
+        {
+          provide: getRepositoryToken(Coffee),
+          useValue: createMockRepository(),
+        },
+        {
+          provide: COFFEE_BRANDS,
+          useValue: {},
+        },
+        {
+          provide: DataSource,
+          useValue: {},
+        },
+        {
+          provide: coffeesConfig.KEY,
+          useValue: {},
+        },
+      ],
     }).compile();
 
     service = module.get<CoffeesService>(CoffeesService);
+    coffeeRepository = module.get(getRepositoryToken(Coffee));
   });
 
   it('should be defined', () => {
