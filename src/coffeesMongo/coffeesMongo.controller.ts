@@ -12,7 +12,7 @@ import {
 import { CoffeesMongoService } from './coffeesMongo.service';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
-import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
+import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
 
 @Controller('coffeesMongo')
 export class CoffeesMongoController {

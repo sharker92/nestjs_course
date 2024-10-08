@@ -2,10 +2,10 @@ import { Injectable, NotFoundException, Scope } from '@nestjs/common';
 import { Coffee } from './entities/coffee.entity';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
-import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto';
+import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
 import { InjectConnection, InjectModel } from '@nestjs/mongoose';
 import { Connection, Model } from 'mongoose';
-import { EventMongo } from 'src/events/entities/eventMongo.entity';
+import { EventMongo } from '../events/entities/eventMongo.entity';
 @Injectable({ scope: Scope.DEFAULT })
 export class CoffeesMongoService {
   constructor(
