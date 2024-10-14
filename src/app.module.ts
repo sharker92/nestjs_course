@@ -27,6 +27,7 @@ import { CoffeesMongoModule } from './coffeesMongo/coffeesMongo.module';
         DATABASE_PORT: Joi.number().default(5434),
       }),
       load: [appConfig],
+      envFilePath: '.env', //default
     }),
     MongooseModule.forRoot('mongodb://localhost:27017/nest-course'),
     CoffeesModule,

@@ -28,9 +28,9 @@ export class CoffeesService {
     console.log(coffeesConfiguration.foo);
   }
 
-  findAll(paginationQuery: PaginationQueryDto) {
+  async findAll(paginationQuery: PaginationQueryDto) {
     const { limit, offset } = paginationQuery;
-    return this.coffeeRepository.find({
+    return await this.coffeeRepository.find({
       relations: ['flavors'],
       skip: offset,
       take: limit,
@@ -54,7 +54,7 @@ export class CoffeesService {
       ...createCoffeeDto,
       flavors,
     });
-    return this.coffeeRepository.save(coffee);
+    return await this.coffeeRepository.save(coffee);
   }
   async update(id: number, updateCoffeeDto: UpdateCoffeeDto) {
     const flavors =
@@ -70,11 +70,11 @@ export class CoffeesService {
     if (!coffee) {
       throw new NotFoundException(`Coffee #${id} not found`);
     }
-    return this.coffeeRepository.save(coffee);
+    return await this.coffeeRepository.save(coffee);
   }
   async remove(id: number) {
     const coffee = await this.findOne(id);
-    return this.coffeeRepository.remove(coffee);
+    return await this.coffeeRepository.remove(coffee);
   }
   private async preloadFlavorByName(name: string): Promise<Flavor> {
     const existingFlavor = await this.flavorRepository.findOne({

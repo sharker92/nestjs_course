@@ -5,7 +5,7 @@
 @token = 123456O
 
 ###
-#Get All
+# Hello Nest!
 ###
 GET {{host}}/
 Authorization: {{token}}
