@@ -1,12 +1,11 @@
 {
   "moduleFileExtensions": ["js", "json", "ts"],
-  "rootDir": "src",
+  "rootDir": ".",
   "testEnvironment": "node",
   "testRegex": ".*\\.(e2e-spec|spec)\\.ts$",
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
   },
-  // "setupFilesAfterEnv": ["./testSetupAfterEnv.ts"],
   "coverageDirectory": "../coverage",
   "collectCoverageFrom": ["**/*.(t|j)s"],
   "coverageThreshold": {
