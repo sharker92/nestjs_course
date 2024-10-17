@@ -43,23 +43,8 @@ describe('[Feature] Coffees - /coffees', () => {
     );
     await app.init();
   });
-  it('Create [POST /coffees]', () => {
-    return request(app.getHttpServer())
-      .post('/coffees')
-      .send(coffee as CreateCoffeeDto)
-      .expect(HttpStatus.CREATED) // until here could be enough
-      .then(({ body }) => {
-        const expectedCoffee = expect.objectContaining({
-          ...coffee,
-          flavors: expect.arrayContaining(
-            coffee.flavors.map((name) => expect.objectContaining({ name })), // TODO revisar las salida del body para entender esta logica
-          ),
-        }); // optionally could create files with expected responses and DTO to avoid this repeating logic
-        expect(body).toEqual(expectedCoffee);
-      });
-  });
 
-  it('Create [POST /coffees]2', async () => {
+  it('Create [POST /coffees]', async () => {
     const response = await request(app.getHttpServer())
       .post('/coffees')
       .send(coffee as CreateCoffeeDto)
@@ -70,7 +55,7 @@ describe('[Feature] Coffees - /coffees', () => {
       flavors: expect.arrayContaining(
         coffee.flavors.map((name) => expect.objectContaining({ name })),
       ),
-    });
+    }); // optionally could create files with expected responses and DTO to avoid this repeating logic
 
     expect(response.body).toEqual(expectedCoffee);
   });
@@ -83,4 +68,3 @@ describe('[Feature] Coffees - /coffees', () => {
     await app.close();
   });
 });
-//todo https://github.com/sharker92/nestjs_course/commit/5c4e6e239ce89c05522ad478e421f3482c7eee32
